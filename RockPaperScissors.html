@@ -8,6 +8,121 @@
 <body>
     <script>
         console.log("hello world!")
+        //Output random "Rock Paper or scissors" string//
+        const rpgChoice = ['rock', 'paper', 'scissors'];
+        let playerScore = 0;
+        let computerScore = 0;
+        let roundWinner= '';
+
+      
+        
+
+        function getComputerChoice()
+        {
+        return randomChoice = rpgChoice[Math.floor(Math.random()*rpgChoice.length)];
+          
+        }
+        //console.log(getComputerChoice());
+
+
+        /*Single round
+        Prompt Game ?
+        Compare with Computer Choice
+        */
+       function playRound(playerSelection, computerSelection){
+        
+        const playerSelect= prompt("Rock, Paper, Scissors?","");
+        let pSelection = playerSelect.toLowerCase();
+        
+        
+        
+        console.log("Player: " + pSelection);
+        computerSelection = getComputerChoice();
+        console.log("Computer: " + computerSelection);
+
+        if(
+            (pSelection==="rock"&&computerSelection==="scissors") || 
+            (pSelection==="paper" && computerSelection==="rock")||
+            (pSelection==="scissors"&&computerSelection==="paper"))
+        {
+            return ++playerScore;
+            roundWinner='player';
+            console.log(roundWinner);
+            
+        }
+        if(
+            (pSelection==="rock"&&computerSelection==="paper") || 
+            (pSelection==="paper" && computerSelection==="scissors")||
+            (pSelection==="scissors"&&computerSelection==="rock"))
+        { 
+            return ++computerScore;
+            roundWinner='computer';
+            console.log(roundWinner);
+           
+            
+        }
+        if(pSelection===computerSelection){
+            return("Tie!");
+        }
+        
+            
+        }
+    
+          let i = 1;
+        while (i<=5){
+            console.log(playRound());
+            
+            
+            i++
+            if(i>5)
+            {
+               if(playerScore>computerScore)
+               {
+                alert('You win!');
+               }
+               else if(playerScore<computerScore){
+                alert('Game Over! You lose, Loser!');
+               }
+               else{
+                alert('Tie!');
+               }
+           
+               
+            }  
+        
+        
+           
+            
+        }
+
+       
+      //for statement
+       /* for (let i= playRound(); ; i++){
+            
+                console.log(playRound());
+                if(i>5) break;
+            }:/
+            
+
+
+        //Print Game Results
+        /*if (randomChoice === 'Rock')
+        {
+            console.log("R")
+        }
+        else if(randomChoice==='Paper'){
+            console.log("P")
+        }
+        else if(randomChoice==='Scissors'){
+            console.log("S")
+        };*/
+
+        //console.log(playRound());
+
+        
+        
+        
+        
     </script>
     
 </body>
